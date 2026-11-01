@@ -33,14 +33,21 @@
 
         <div class="game-frame">
           <div class="game-hud" aria-label="ゲームの状態">
-            <div class="hud-item">
-              <span class="hud-label">COINS</span>
-              <span class="coin-count"><span aria-hidden="true">●</span> <span id="coin-count">0</span></span>
+            <div class="hud-stats">
+              <div class="hud-item">
+                <span class="hud-label">COINS</span>
+                <span class="coin-count"><span aria-hidden="true">●</span> <span id="coin-count">0</span></span>
+              </div>
+              <span class="health-count" id="health-count" aria-label="残りライフ">♥ ♥ ♥</span>
+              <span class="arrow-count" aria-label="弓矢の残り">🏹 <span id="arrow-count">12</span></span>
             </div>
-            <div class="level-indicator"><span class="level-dot"></span> GREEN HILLS <span class="level-number">01</span></div>
-            <button class="restart-button" id="restart-button" type="button" aria-label="ゲームを最初からやり直す">
-              <span aria-hidden="true">↻</span> やり直す
-            </button>
+            <div class="level-indicator"><span class="level-dot"></span> <span id="world-name">GREEN HILLS</span> <span class="level-number" id="stage-number">01-01</span></div>
+            <div class="hud-actions">
+              <span class="timer-count" id="timer-count" aria-label="残り時間">90</span>
+              <button class="restart-button" id="restart-button" type="button" aria-label="ステージを最初からやり直す">
+                <span aria-hidden="true">↻</span> やり直す
+              </button>
+            </div>
           </div>
 
           <div class="canvas-wrap">
@@ -58,9 +65,11 @@
             </div>
           </div>
 
+          <div class="item-status" id="item-status" aria-live="polite">アイテム：なし</div>
+
           <div class="game-footer">
-            <p><kbd>A</kbd> <kbd>D</kbd> または <kbd>←</kbd> <kbd>→</kbd> で移動 <span class="footer-divider">·</span> <kbd>SPACE</kbd> でジャンプ</p>
-            <span class="footer-tip"><span aria-hidden="true">✦</span> コインを集めよう</span>
+            <p><kbd>A</kbd> <kbd>D</kbd> / <kbd>←</kbd> <kbd>→</kbd> 移動 <span class="footer-divider">·</span> <kbd>SPACE</kbd> ジャンプ <kbd>J</kbd> 剣 <kbd>K</kbd> 弓</p>
+            <span class="footer-tip"><span aria-hidden="true">✦</span> 宝箱を探そう</span>
           </div>
         </div>
 
@@ -69,10 +78,14 @@
             <button class="control-button" type="button" data-control="left" aria-label="左に移動">←</button>
             <button class="control-button" type="button" data-control="right" aria-label="右に移動">→</button>
           </div>
-          <button class="control-button jump-control" type="button" data-control="jump" aria-label="ジャンプ">JUMP <span aria-hidden="true">↑</span></button>
+          <div class="action-controls">
+            <button class="control-button action-control" type="button" data-control="sword" aria-label="剣で攻撃">剣</button>
+            <button class="control-button action-control" type="button" data-control="bow" aria-label="弓矢で攻撃">弓</button>
+            <button class="control-button jump-control" type="button" data-control="jump" aria-label="ジャンプ">跳 <span aria-hidden="true">↑</span></button>
+          </div>
         </div>
 
-        <p class="below-note">トゲに気をつけて！ 落ちても何度でもやり直せるよ。</p>
+        <p class="below-note">宝箱のアイテムを活用して、各ワールドの城にいるボスを倒そう。</p>
       </section>
 
       <footer class="page-footer"><span>MADE FOR A SUNNY DAY</span><span>✦</span></footer>

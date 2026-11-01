@@ -1,2 +1,2 @@
 # myfirstapp
-haso
+hasoおもろまち

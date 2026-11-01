@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap");
 
+
 :root {
   color-scheme: light;
   font-family: "DM Sans", "Noto Sans JP", sans-serif;
@@ -149,10 +150,54 @@ h1 {
   background: #fff;
 }
 
+.hud-stats,
+.hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hud-actions {
+  justify-self: end;
+}
+
 .hud-item {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.health-count {
+  color: #d97168;
+  font-size: 13px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.arrow-count {
+  color: #66776a;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.timer-count {
+  min-width: 29px;
+  color: #397a59;
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.timer-count.is-low {
+  color: #d45e4e;
+  animation: timer-pulse 700ms ease-in-out infinite alternate;
+}
+
+@keyframes timer-pulse {
+  to {
+    opacity: 0.55;
+  }
 }
 
 .hud-label {
@@ -214,6 +259,15 @@ h1 {
   margin-right: 3px;
   font-size: 15px;
   vertical-align: -1px;
+}
+
+.item-status {
+  min-height: 29px;
+  padding: 7px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  background: #f5f8f2;
+  color: #718276;
+  font-size: 10px;
 }
 
 .canvas-wrap {
@@ -376,6 +430,11 @@ kbd {
   gap: 10px;
 }
 
+.action-controls {
+  display: flex;
+  gap: 8px;
+}
+
 .control-button {
   display: grid;
   width: 58px;
@@ -406,6 +465,12 @@ kbd {
   color: #fff;
   font-size: 12px;
   letter-spacing: 0.08em;
+}
+
+.action-control {
+  width: 48px;
+  color: #765b43;
+  font-size: 13px;
 }
 
 .jump-control:active,
@@ -463,12 +528,42 @@ kbd {
 
   .game-hud {
     height: 52px;
-    padding: 0 13px;
+    grid-template-columns: 1fr auto;
+    padding: 0 10px;
+  }
+
+  .hud-stats {
+    gap: 8px;
   }
 
   .level-indicator {
-    gap: 6px;
+    gap: 0;
+  }
+
+  .level-indicator .level-dot,
+  .level-indicator #world-name {
+    display: none;
+  }
+
+  .hud-actions {
+    gap: 8px;
+  }
+
+  .health-count,
+  .arrow-count {
+    font-size: 10px;
+  }
+
+  .hud-label {
     font-size: 8px;
+  }
+
+  .hud-item {
+    gap: 6px;
+  }
+
+  .timer-count {
+    font-size: 12px;
   }
 
   .restart-button {
@@ -497,6 +592,20 @@ kbd {
     display: flex;
   }
 
+  .action-controls {
+    gap: 6px;
+  }
+
+  .action-control {
+    width: 43px;
+    height: 48px;
+  }
+
+  .jump-control {
+    width: 55px;
+    height: 48px;
+  }
+
   .page-footer {
     margin-top: 34px;
   }
@@ -505,6 +614,18 @@ kbd {
 @media (max-width: 380px) {
   .topbar-note {
     letter-spacing: 0;
+  }
+
+  .health-count {
+    letter-spacing: -1px;
+  }
+
+  .hud-label {
+    display: none;
+  }
+
+  .arrow-count {
+    display: none;
   }
 
   .game-footer p {
