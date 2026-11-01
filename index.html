@@ -1,11 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    yiu
-</body>
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="走って、ジャンプして、コインを集めよう。ブラウザで遊べる横スクロールアクションゲーム。"
+    />
+    <title>SKYBOUND — 横スクロールアクション</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="SKYBOUND ホーム">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>SKYBOUND</span>
+        </a>
+        <div class="topbar-note"><span class="live-dot"></span> ADVENTURE MODE</div>
+      </header>
+
+      <section class="game-section" aria-labelledby="game-title">
+        <div class="intro">
+          <div>
+            <p class="eyebrow">A LITTLE ADVENTURE</p>
+            <h1 id="game-title">空の向こうへ。</h1>
+          </div>
+          <p class="intro-copy">走って、跳んで、コインを集めよう。</p>
+        </div>
+
+        <div class="game-frame">
+          <div class="game-hud" aria-label="ゲームの状態">
+            <div class="hud-item">
+              <span class="hud-label">COINS</span>
+              <span class="coin-count"><span aria-hidden="true">●</span> <span id="coin-count">0</span></span>
+            </div>
+            <div class="level-indicator"><span class="level-dot"></span> GREEN HILLS <span class="level-number">01</span></div>
+            <button class="restart-button" id="restart-button" type="button" aria-label="ゲームを最初からやり直す">
+              <span aria-hidden="true">↻</span> やり直す
+            </button>
+          </div>
+
+          <div class="canvas-wrap">
+            <canvas id="game" aria-label="横スクロールアクションゲーム">
+              このゲームを遊ぶには、Canvasに対応したブラウザが必要です。
+            </canvas>
+            <div class="game-message" id="game-message" aria-live="polite">
+              <div class="message-card">
+                <span class="message-icon" id="message-icon" aria-hidden="true">✦</span>
+                <p class="message-kicker" id="message-kicker">READY, RUNNER?</p>
+                <h2 id="message-title">冒険をはじめよう</h2>
+                <p id="message-copy">コインを集めながら、ゴールを目指そう。</p>
+                <button class="start-button" id="start-button" type="button">ゲームスタート <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-footer">
+            <p><kbd>A</kbd> <kbd>D</kbd> または <kbd>←</kbd> <kbd>→</kbd> で移動 <span class="footer-divider">·</span> <kbd>SPACE</kbd> でジャンプ</p>
+            <span class="footer-tip"><span aria-hidden="true">✦</span> コインを集めよう</span>
+          </div>
+        </div>
+
+        <div class="mobile-controls" aria-label="ゲーム操作">
+          <div class="move-controls">
+            <button class="control-button" type="button" data-control="left" aria-label="左に移動">←</button>
+            <button class="control-button" type="button" data-control="right" aria-label="右に移動">→</button>
+          </div>
+          <button class="control-button jump-control" type="button" data-control="jump" aria-label="ジャンプ">JUMP <span aria-hidden="true">↑</span></button>
+        </div>
+
+        <p class="below-note">トゲに気をつけて！ 落ちても何度でもやり直せるよ。</p>
+      </section>
+
+      <footer class="page-footer"><span>MADE FOR A SUNNY DAY</span><span>✦</span></footer>
+    </main>
+  </body>
 </html>
